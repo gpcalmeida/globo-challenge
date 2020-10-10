@@ -1,4 +1,4 @@
-package com.mioclub.ext
+package com.globo.challenge.ext
 
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

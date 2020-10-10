@@ -1,5 +1,6 @@
 package com.globo.challenge.di.application
 
+import api.MockEndPoint
 import dagger.*
 import retrofit2.Retrofit
 import javax.inject.Singleton
@@ -7,10 +8,10 @@ import javax.inject.Singleton
 @Module
 class EndPointModule {
 
-//    @Provides
-//    @Singleton
-//    fun provideAuthEndpoint(retrofit: Retrofit) : UserEndPoint{
-//        return retrofit.create(UserEndPoint::class.java)
-//    }
+    @Provides
+    @Singleton
+    fun provideMockEndpoint(retrofit: Retrofit) : MockEndPoint{
+        return retrofit.create(MockEndPoint::class.java)
+    }
 
 }

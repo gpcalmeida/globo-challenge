@@ -7,6 +7,8 @@ import com.globo.challenge.di.screen.ScreenModule
 
 abstract class BaseActivity : AppCompatActivity() {
 
+    abstract fun getViewModel(): BaseViewModel?
+
     val screenComponent by lazy {
         getApplicationComponent().plus(ScreenModule(this))
     }

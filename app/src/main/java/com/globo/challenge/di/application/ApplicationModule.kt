@@ -1,11 +1,13 @@
 package com.globo.challenge.di.application
 
 import android.app.Application
+import android.content.Context
 import com.globo.challenge.BaseApplication
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -27,9 +29,21 @@ class ApplicationModule(private val application: BaseApplication) {
     }
 
     @Provides
+    fun provideContext(): Context {
+        return application
+    }
+
+    @Provides
     @Singleton
     fun provideRetrofit(): Retrofit {
-        val httpClient = OkHttpClient.Builder().build()
+        val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+        val httpClient = OkHttpClient()
+            .newBuilder()
+            .addInterceptor(httpLoggingInterceptor)
+            .build()
+
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(Gson()))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

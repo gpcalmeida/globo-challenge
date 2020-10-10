@@ -1,6 +1,5 @@
 package com.globo.challenge.presentation.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.globo.challenge.R
 import com.globo.challenge.presentation.BaseActivity

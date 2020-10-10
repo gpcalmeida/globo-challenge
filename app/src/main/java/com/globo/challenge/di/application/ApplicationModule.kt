@@ -34,7 +34,7 @@ class ApplicationModule(private val application: BaseApplication) {
             .addConverterFactory(GsonConverterFactory.create(Gson()))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(httpClient)
-            .baseUrl("")
+            .baseUrl("https://private-9e6bdc-globochallenge.apiary-mock.com")
             .build()
     }
 }

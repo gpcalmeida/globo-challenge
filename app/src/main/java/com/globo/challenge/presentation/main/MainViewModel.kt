@@ -47,6 +47,7 @@ class MainViewModel @Inject constructor(
                GlobalScope.launch {
                    result.movies.forEach {
                        insertFavoriteUseCase.execute(it)
+
                    }
                    getFavorites()
                }

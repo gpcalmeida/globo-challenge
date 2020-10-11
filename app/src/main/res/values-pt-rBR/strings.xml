@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user">Usuário</string>
+    <string name="password">Senha</string>
+    <string name="login">Entrar</string>
+    <string name="not_registered_yet">Não se cadastrou ainda?</string>
+    <string name="sign_up">CADASTRE-SE</string>
+</resources>

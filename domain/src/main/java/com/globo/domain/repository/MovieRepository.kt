@@ -9,5 +9,7 @@ interface MovieRepository {
 
     suspend fun insertFavorite(movie : Movie)
 
-    suspend fun getFavorites() : List<Movie>
+    suspend fun getFavorites(user : String) : List<Movie>
+
+    suspend fun deleteFavorite(movie : Movie)
 }

@@ -4,11 +4,11 @@ import com.globo.domain.model.Movie
 import com.globo.domain.repository.MovieRepository
 import javax.inject.Inject
 
-class GetFavoritesUseCase @Inject constructor(
+class DeleteFavoriteUseCase @Inject constructor(
     private val movieRepository: MovieRepository
-) {
+){
 
-    suspend fun execute() : List<Movie> {
-        return movieRepository.getFavorites("")
+    suspend fun execute(movie : Movie) {
+        movieRepository.deleteFavorite(movie)
     }
 }

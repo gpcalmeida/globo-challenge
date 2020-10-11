@@ -4,7 +4,7 @@ import android.content.Context
 import api.MockApi
 import com.globo.domain.model.Movie
 import com.globo.domain.repository.MovieRepository
-import db.FavoritesRoomDatabase
+import db.MoviesRoomDatabase
 import io.reactivex.Single
 import mapper.MovieMapper
 import javax.inject.Inject
@@ -20,12 +20,14 @@ class MovieRepositoryImpl @Inject constructor(
     }
 
     override suspend fun insertFavorite(movie : Movie) {
-        FavoritesRoomDatabase.getDatabase(context).favoritesDao().insert(movie)
+        MoviesRoomDatabase.getDatabase(context).favoritesDao().insert(movie)
     }
 
-    override suspend fun getFavorites(): List<Movie> {
-        return FavoritesRoomDatabase.getDatabase(context).favoritesDao().getFavorites()
+    override suspend fun getFavorites(user : String): List<Movie> {
+        return MoviesRoomDatabase.getDatabase(context).favoritesDao().getFavorites(user)
     }
 
-
+    override suspend fun deleteFavorite(movie: Movie) {
+        MoviesRoomDatabase.getDatabase(context).favoritesDao().delete(movie)
+    }
 }

@@ -6,7 +6,6 @@ import api.MockApi
 import com.globo.domain.repository.MovieRepository
 import dagger.Module
 import dagger.Provides
-import db.FavoritesRoomDatabase
 import mapper.MovieMapper
 import repository.MovieRepositoryImpl
 import javax.inject.Singleton

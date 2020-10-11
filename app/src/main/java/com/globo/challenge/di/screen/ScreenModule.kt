@@ -2,6 +2,7 @@ package com.globo.challenge.di.screen
 
 import com.globo.challenge.di.scope.PerScreen
 import com.globo.challenge.presentation.BaseActivity
+import com.globo.challenge.presentation.splash.SplashRouter
 import dagger.Module
 import dagger.Provides
 import java.lang.ref.WeakReference
@@ -15,10 +16,10 @@ class ScreenModule(private val activity: BaseActivity) {
         return activity
     }
 
-//    @PerScreen
-//    @Provides
-//    fun providesLoginRouter(): LoginRouter{
-//        return LoginRouter(WeakReference(activity))
-//    }
+    @PerScreen
+    @Provides
+    fun providesSplashRouter(): SplashRouter {
+        return SplashRouter(WeakReference(activity))
+    }
 
 }

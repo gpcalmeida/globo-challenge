@@ -5,7 +5,10 @@ import com.globo.challenge.BaseApplication
 import com.globo.challenge.di.application.ApplicationComponent
 import com.globo.challenge.di.screen.ScreenModule
 
-class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment() {
+
+
+    abstract fun getViewModel(): BaseViewModel?
 
     val screenComponent by lazy {
         getApplicationComponent().plus(ScreenModule(activity as BaseActivity))

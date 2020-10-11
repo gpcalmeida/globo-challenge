@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.globo.challenge.presentation.BaseViewModel
 import com.globo.domain.model.User
-import com.globo.domain.session.SaveUserUseCase
+import com.globo.domain.usecase.session.SaveUserUseCase
 import com.globo.domain.usecase.user.GetUserUseCase
 import com.globo.domain.usecase.user.InsertUserUseCase
 import kotlinx.coroutines.GlobalScope

@@ -1,4 +1,4 @@
-package com.globo.domain.session
+package com.globo.domain.usecase.session
 
 import com.globo.domain.model.User
 import com.globo.domain.repository.UserRepository

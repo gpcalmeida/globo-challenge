@@ -8,7 +8,7 @@
     <string name="sign_up">CADASTRE-SE</string>
     <string name="confirm">Confirmar</string>
     <string name="confirm_password">Confirmar Senha</string>
-    <string name="already_registered">Already registered?</string>
+    <string name="already_registered">Já se cadastrou?</string>
     <string name="fill_field">Preencha o campo.</string>
     <string name="pass_not_matching">Senhas não coincidem.</string>
     <string name="unable_to_auth">Não foi possível autenticar.</string>

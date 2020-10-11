@@ -2,7 +2,14 @@
     <string name="app_name" translatable="false">Globo Challenge</string>
     <string name="user">User</string>
     <string name="password">Password</string>
-    <string name="login">Login</string>
+    <string name="login">LOGIN</string>
+    <string name="enter">ENTER</string>
     <string name="not_registered_yet">Not registered yet?</string>
     <string name="sign_up">SIGN UP</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_registered">Already registered?</string>
+    <string name="fill_field">Fill the field.</string>
+    <string name="pass_not_matching">Passwords do not match.</string>
+    <string name="unable_to_auth">Unable to authenticate.</string>
 </resources>

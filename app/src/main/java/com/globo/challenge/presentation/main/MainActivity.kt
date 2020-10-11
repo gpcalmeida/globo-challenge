@@ -7,6 +7,7 @@ import com.globo.challenge.R
 import com.globo.challenge.databinding.ActivityMainBinding
 import com.globo.challenge.presentation.BaseActivity
 import com.globo.challenge.presentation.BaseViewModel
+import storage.SessionManager
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {

@@ -1,4 +1,4 @@
-package com.globo.domain.usecase
+package com.globo.domain.usecase.movies
 
 import com.globo.domain.Result.MoviesResult
 import com.globo.domain.repository.MovieRepository

@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".presentation.main.MainActivity"/>
-        <activity android:name=".presentation.login.LoginActivity"/>
+        <activity android:name=".presentation.auth.AuthActivity"
+            android:windowSoftInputMode="adjustPan"/>
 
         <activity android:name=".presentation.splash.SplashActivity"
             android:theme="@style/SplashScreenTheme">

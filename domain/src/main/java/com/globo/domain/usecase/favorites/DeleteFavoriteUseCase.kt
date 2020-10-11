@@ -1,4 +1,4 @@
-package com.globo.domain.usecase
+package com.globo.domain.usecase.favorites
 
 import com.globo.domain.model.Movie
 import com.globo.domain.repository.MovieRepository

@@ -2,7 +2,14 @@
 <resources>
     <string name="user">Usuário</string>
     <string name="password">Senha</string>
-    <string name="login">Entrar</string>
+    <string name="login">LOGIN</string>
+    <string name="enter">ENTRAR</string>
     <string name="not_registered_yet">Não se cadastrou ainda?</string>
     <string name="sign_up">CADASTRE-SE</string>
+    <string name="confirm">Confirmar</string>
+    <string name="confirm_password">Confirmar Senha</string>
+    <string name="already_registered">Already registered?</string>
+    <string name="fill_field">Preencha o campo.</string>
+    <string name="pass_not_matching">Senhas não coincidem.</string>
+    <string name="unable_to_auth">Não foi possível autenticar.</string>
 </resources>

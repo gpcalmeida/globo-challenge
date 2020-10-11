@@ -7,9 +7,9 @@ import com.globo.challenge.ext.addTo
 import com.globo.challenge.presentation.BaseViewModel
 import com.globo.domain.Result
 import com.globo.domain.model.Movie
-import com.globo.domain.usecase.GetFavoritesUseCase
-import com.globo.domain.usecase.GetMoviesUseCase
-import com.globo.domain.usecase.InsertFavoriteUseCase
+import com.globo.domain.usecase.favorites.GetFavoritesUseCase
+import com.globo.domain.usecase.movies.GetMoviesUseCase
+import com.globo.domain.usecase.favorites.InsertFavoriteUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.GlobalScope

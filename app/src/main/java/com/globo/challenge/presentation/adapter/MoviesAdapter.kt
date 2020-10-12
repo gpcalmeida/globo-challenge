@@ -65,6 +65,10 @@ class MoviesAdapter(
                 onFavoriteClickedListener.invoke(movie)
             }
 
+            binding.movieImageView.setOnClickListener {
+                onMovieClickedListener.invoke(movie)
+            }
+
         }
 
         private fun setAsFavorite() {

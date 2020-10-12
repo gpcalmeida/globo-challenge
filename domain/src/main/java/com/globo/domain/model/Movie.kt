@@ -13,6 +13,6 @@ data class Movie (
     val duration : String,
     val synopsis : String,
     val thumbnail : String,
-    var user : String = "",
+    var user : String = String(),
     var isFavorite : Boolean = false
 )

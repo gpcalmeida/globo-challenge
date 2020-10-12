@@ -4,17 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.globo.challenge.databinding.FragmentMoviesBinding
 import com.globo.challenge.presentation.BaseFragment
 import com.globo.challenge.presentation.adapter.MoviesAdapter
 import com.globo.challenge.presentation.main.MainActivity
-import kotlinx.coroutines.Dispatchers
+import com.globo.challenge.presentation.main.movies.moviedetails.MovieDetailsFragmentDialog
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MoviesFragment : BaseFragment() {
 
@@ -51,7 +49,9 @@ class MoviesFragment : BaseFragment() {
                             getViewModel().deleteFavorite(it)
                     }
                 }
-                onMovieClickedListener = {}
+                onMovieClickedListener = { movie ->
+                    MovieDetailsFragmentDialog(movie).show(activity!!.supportFragmentManager, "")
+                }
             }
             binding.moviesRecyclerView.layoutManager = GridLayoutManager(activity!!, 3)
 

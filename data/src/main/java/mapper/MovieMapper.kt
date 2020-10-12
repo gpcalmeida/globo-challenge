@@ -13,7 +13,7 @@ class MovieMapper @Inject constructor() {
     fun map(response : MovieResponse) : Movie {
         return Movie(
             title = response.title,
-            subtitle = response.title,
+            subtitle = response.subtitle,
             synopsis = response.synopsis,
             duration = response.duration,
             thumbnail = response.thumbnail

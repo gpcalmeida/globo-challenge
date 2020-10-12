@@ -2,6 +2,8 @@
     <string name="app_name" translatable="false">Globo Challenge</string>
     <string name="user">User</string>
     <string name="password">Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
     <string name="login">LOGIN</string>
     <string name="enter">ENTER</string>
     <string name="not_registered_yet">Not registered yet?</string>
@@ -14,10 +16,12 @@
     <string name="pass_not_matching">Passwords do not match.</string>
     <string name="wrong_password">Wrong password.</string>
     <string name="unable_to_auth">Unable to authenticate.</string>
-
     <string name="movies">Movies</string>
     <string name="favorites">Favorites</string>
     <string name="profile">Profile</string>
     <string name="no_favorites">You have no favorites yet. \n Add them by touching the stars on the movies list.</string>
     <string name="no_movies">No movies found.</string>
+    <string name="hello_user">Olá, </string>
+    <string name="change_password">Change Password</string>
+    <string name="logout">Logout</string>
 </resources>

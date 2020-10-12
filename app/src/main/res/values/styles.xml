@@ -18,4 +18,13 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="CustomWhiteAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/background_fragment_dialog</item>
+    </style>
+
+    <style name="CustomGrayAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/background_fragment_dialog_gray</item>
+    </style>
+
+
 </resources>

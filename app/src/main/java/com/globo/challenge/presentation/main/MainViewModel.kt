@@ -12,6 +12,8 @@ import com.globo.domain.usecase.favorites.GetFavoritesUseCase
 import com.globo.domain.usecase.movies.GetMoviesUseCase
 import com.globo.domain.usecase.favorites.InsertFavoriteUseCase
 import com.globo.domain.usecase.session.ClearSessionUseCase
+import com.globo.domain.usecase.session.GetSavedUserUseCase
+import com.globo.domain.usecase.user.ChangePasswordUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.GlobalScope
@@ -24,7 +26,9 @@ class MainViewModel @Inject constructor(
     private val getFavoritesUseCase: GetFavoritesUseCase,
     private val insertFavoriteUseCase: InsertFavoriteUseCase,
     private val deleteFavoriteUseCase: DeleteFavoriteUseCase,
+    private val getSavedUserUseCase: GetSavedUserUseCase,
     private val clearSessionUseCase: ClearSessionUseCase,
+    private val changePasswordUseCase: ChangePasswordUseCase,
     application: BaseApplication
 ) : BaseViewModel(application) {
 
@@ -33,6 +37,19 @@ class MainViewModel @Inject constructor(
 
     private val favorites = MutableLiveData<List<Movie>>().apply { value = emptyList() }
     fun getFavorites() : LiveData<List<Movie>> = favorites
+
+    private val currentUser = MutableLiveData<String>().apply { value = null }
+    fun getCurrentUser() : LiveData<String> = currentUser
+
+    init {
+        currentUser.postValue(getSavedUserUseCase.execute())
+    }
+
+    fun onChangePasswordCalled(newPassword : String) {
+        GlobalScope.launch {
+            changePasswordUseCase.execute(newPassword)
+        }
+    }
 
     fun onLogoutClicked() {
         clearSessionUseCase.execute()
@@ -55,7 +72,7 @@ class MainViewModel @Inject constructor(
 
     }
 
-    fun getAllMovies() {
+    private fun getAllMovies() {
         getMoviesUseCase.execute()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

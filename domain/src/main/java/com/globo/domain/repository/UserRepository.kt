@@ -8,6 +8,8 @@ interface UserRepository {
 
     suspend fun getUser(user : String) : User
 
+    suspend fun updatePassword(user: String, password: String)
+
     fun saveUser(user : User)
 
     fun getSavedUser() : String?

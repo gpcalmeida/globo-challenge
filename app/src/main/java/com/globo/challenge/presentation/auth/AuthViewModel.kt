@@ -34,12 +34,14 @@ class AuthViewModel @Inject constructor(
     val passwordEmptyError = MutableLiveData<Boolean>().apply { value = false }
     val confirmPasswordEmptyError = MutableLiveData<Boolean>().apply { value = false }
     val passwordsNotMatching = MutableLiveData<Boolean>().apply { value = false }
+    val registeredUserError = MutableLiveData<Boolean>().apply { value = false }
 
     val loginUser = MutableLiveData<String>().apply { value = null }
     val loginPassword = MutableLiveData<String>().apply { value = null }
 
     val loginUserEmptyError = MutableLiveData<Boolean>().apply { value = false }
     val loginPasswordEmptyError = MutableLiveData<Boolean>().apply { value = false }
+    val loginWrongPasswordError = MutableLiveData<Boolean>().apply { value = false }
     val unableAuthenticate = MutableLiveData<Boolean>().apply { value = false }
 
     fun onSignUpClicked() {
@@ -66,12 +68,16 @@ class AuthViewModel @Inject constructor(
 
     private fun signUpUser(user : User) {
         GlobalScope.launch {
-            insertUserUseCase.execute(user)
-            val auth = getUserUseCase.execute(user)
+            try {
+                insertUserUseCase.execute(user)
 
-            auth.let {
-                saveUserUseCase.execute(auth)
-                router.navigate(AuthRouter.Route.MAIN)
+                val auth = getUserUseCase.execute(user)
+                auth.let {
+                    saveUserUseCase.execute(auth)
+                    router.navigate(AuthRouter.Route.MAIN)
+                }
+            } catch ( e : android.database.sqlite.SQLiteConstraintException) {
+                registeredUserError.postValue(true)
             }
         }
     }
@@ -88,13 +94,16 @@ class AuthViewModel @Inject constructor(
     }
 
     private fun doLogin(user : User) {
-        var auth : User? = null
         GlobalScope.launch {
-            auth = getUserUseCase.execute(user)
+            val auth : User? = getUserUseCase.execute(user)
 
             auth?.let {
-                saveUserUseCase.execute(auth!!)
-                router.navigate(AuthRouter.Route.MAIN)
+                if(it.password != user.password) {
+                    loginWrongPasswordError.postValue(true)
+                } else {
+                    saveUserUseCase.execute(auth)
+                    router.navigate(AuthRouter.Route.MAIN)
+                }
             } ?: unableAuthenticate.postValue(true)
 
         }

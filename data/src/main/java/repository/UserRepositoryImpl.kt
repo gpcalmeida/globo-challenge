@@ -16,8 +16,8 @@ class UserRepositoryImpl @Inject constructor(
         MoviesRoomDatabase.getDatabase(context).userDao().insertUser(user)
     }
 
-    override suspend fun getUser(user: String, password: String): User {
-        return MoviesRoomDatabase.getDatabase(context).userDao().getUser(user, password)
+    override suspend fun getUser(user: String): User {
+        return MoviesRoomDatabase.getDatabase(context).userDao().getUser(user)
     }
 
     override fun saveUser(user: User) {

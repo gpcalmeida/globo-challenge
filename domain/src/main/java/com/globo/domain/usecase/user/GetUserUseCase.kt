@@ -9,6 +9,6 @@ class GetUserUseCase @Inject constructor(
 ) {
 
     suspend fun execute(user : User) : User {
-        return userRepository.getUser(user.user, user.password)
+        return userRepository.getUser(user.user)
     }
 }

@@ -69,5 +69,13 @@ class LoginFragment : BaseFragment() {
                 }
             }
         })
+
+        getViewModel().loginWrongPasswordError.observe(viewLifecycleOwner, Observer {
+            it?.let { wrongPassword ->
+                if(wrongPassword) {
+                    binding.passwordEditText.error = getString(R.string.wrong_password)
+                }
+            }
+        })
     }
 }

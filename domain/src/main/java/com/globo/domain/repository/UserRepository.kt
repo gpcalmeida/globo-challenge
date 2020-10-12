@@ -6,7 +6,7 @@ interface UserRepository {
 
     suspend fun registerUser(user : User)
 
-    suspend fun getUser(user : String, password : String) : User
+    suspend fun getUser(user : String) : User
 
     fun saveUser(user : User)
 

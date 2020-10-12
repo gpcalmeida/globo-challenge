@@ -9,7 +9,9 @@
     <string name="confirm">Confirm</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="already_registered">Already registered?</string>
+    <string name="user_already_registered">User already registered!</string>
     <string name="fill_field">Fill the field.</string>
     <string name="pass_not_matching">Passwords do not match.</string>
+    <string name="wrong_password">Wrong password.</string>
     <string name="unable_to_auth">Unable to authenticate.</string>
 </resources>

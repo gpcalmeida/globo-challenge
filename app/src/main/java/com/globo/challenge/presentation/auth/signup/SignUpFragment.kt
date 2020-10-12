@@ -81,6 +81,14 @@ class SignUpFragment : BaseFragment() {
                 }
             }
         })
+
+        getViewModel().registeredUserError.observe(viewLifecycleOwner, Observer {
+            it?.let { registeredUser ->
+                if(registeredUser) {
+                    binding.userEditText.error = getString(R.string.user_already_registered)
+                }
+            }
+        })
     }
 
 }

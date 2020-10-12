@@ -7,6 +7,7 @@ import com.globo.challenge.ext.addTo
 import com.globo.challenge.presentation.BaseViewModel
 import com.globo.domain.Result
 import com.globo.domain.model.Movie
+import com.globo.domain.usecase.favorites.DeleteFavoriteUseCase
 import com.globo.domain.usecase.favorites.GetFavoritesUseCase
 import com.globo.domain.usecase.movies.GetMoviesUseCase
 import com.globo.domain.usecase.favorites.InsertFavoriteUseCase
@@ -20,6 +21,7 @@ class MainViewModel @Inject constructor(
     private val getMoviesUseCase: GetMoviesUseCase,
     private val getFavoritesUseCase: GetFavoritesUseCase,
     private val insertFavoriteUseCase: InsertFavoriteUseCase,
+    private val deleteFavoriteUseCase: DeleteFavoriteUseCase,
     application: BaseApplication
 ) : BaseViewModel(application) {
 
@@ -29,8 +31,20 @@ class MainViewModel @Inject constructor(
     private val favorites = MutableLiveData<List<Movie>>().apply { value = null }
     fun getFavorites() : LiveData<List<Movie>> = favorites
 
-    fun bound() {
+    fun boundMovies() {
         getAllMovies()
+    }
+
+    fun boundFavorites() {
+        GlobalScope.launch {
+            getDbFavorites()
+        }
+    }
+
+    private suspend fun getDbFavorites() {
+        val favoritesDb = getFavoritesUseCase.execute()
+        favorites.postValue(favoritesDb)
+
     }
 
     fun getAllMovies() {
@@ -45,7 +59,7 @@ class MainViewModel @Inject constructor(
         when(result) {
             is Result.MoviesResult.Success -> {
                 GlobalScope.launch {
-                    getDbFavorites(result.movies)
+                    getFavoriteMovies(result.movies)
                 }
             }
             is Result.MoviesResult.Failure -> hideDialog()
@@ -53,7 +67,15 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private suspend fun getDbFavorites(apiMovies : List<Movie>) {
+    suspend fun setAsFavorite(movie : Movie) {
+        insertFavoriteUseCase.execute(movie)
+    }
+
+    suspend fun deleteFavorite(movie : Movie) {
+        deleteFavoriteUseCase.execute(movie)
+    }
+
+    private suspend fun getFavoriteMovies(apiMovies : List<Movie>) {
         val favorites = getFavoritesUseCase.execute()
 
         favorites.forEach { favorite ->

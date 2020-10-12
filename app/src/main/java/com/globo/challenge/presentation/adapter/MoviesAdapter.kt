@@ -60,6 +60,8 @@ class MoviesAdapter(
             setAsFavorite()
 
             binding.favoriteImageButton.setOnClickListener {
+                this.movie.isFavorite = !this.movie.isFavorite
+                setAsFavorite()
                 onFavoriteClickedListener.invoke(movie)
             }
 

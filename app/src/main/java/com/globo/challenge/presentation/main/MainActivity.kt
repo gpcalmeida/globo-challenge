@@ -2,19 +2,15 @@ package com.globo.challenge.presentation.main
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import com.globo.challenge.R
 import com.globo.challenge.databinding.ActivityMainBinding
 import com.globo.challenge.presentation.BaseActivity
-import com.globo.challenge.presentation.BaseViewModel
 import com.globo.challenge.presentation.adapter.MoviesAdapter
+import com.globo.challenge.presentation.main.favorites.FavoritesFragment
 import com.globo.challenge.presentation.main.movies.MoviesFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import storage.SessionManager
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -34,7 +30,6 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
         binding.let {
             it.viewModel = mainViewModel
-            mainViewModel.bound()
 
             binding.mainBottomNavigationView.setOnNavigationItemSelectedListener(this)
             binding.mainBottomNavigationView.selectedItemId = R.id.moviesAction
@@ -48,7 +43,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
                 openFragment(MoviesFragment.newInstance())
             }
             R.id.favoritesAction -> {
-             openFragment(Fragment())
+             openFragment(FavoritesFragment.newInstance())
             }
             R.id.profileAction ->{
                 openFragment(Fragment())

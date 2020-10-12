@@ -1,4 +1,4 @@
-package com.globo.challenge.presentation.main.movies
+package com.globo.challenge.presentation.main.favorites
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,15 +11,11 @@ import com.globo.challenge.databinding.FragmentMoviesBinding
 import com.globo.challenge.presentation.BaseFragment
 import com.globo.challenge.presentation.adapter.MoviesAdapter
 import com.globo.challenge.presentation.main.MainActivity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-class MoviesFragment : BaseFragment() {
+class FavoritesFragment : BaseFragment() {
 
     companion object {
-        fun newInstance() = MoviesFragment()
+        fun newInstance() = FavoritesFragment()
     }
 
     override fun getViewModel() = (activity as MainActivity).getViewModel()
@@ -43,13 +39,7 @@ class MoviesFragment : BaseFragment() {
 
             binding.moviesRecyclerView.adapter = moviesAdapter.apply {
                 onFavoriteClickedListener = {
-                    GlobalScope.launch {
-                        val a = it.isFavorite
-                        if(it.isFavorite)
-                            getViewModel().setAsFavorite(it)
-                        else
-                            getViewModel().deleteFavorite(it)
-                    }
+                    Toast.makeText(activity!!, "ASDASD ASD AS", Toast.LENGTH_SHORT).show()
                 }
                 onMovieClickedListener = {}
             }
@@ -57,7 +47,7 @@ class MoviesFragment : BaseFragment() {
 
         }
 
-        getViewModel().getMovies().observe(this, Observer {
+        getViewModel().getFavorites().observe(this, Observer {
             it?.let {
                 moviesAdapter.replaceMovies(it)
             }
@@ -68,6 +58,7 @@ class MoviesFragment : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        getViewModel().boundMovies()
+
+        getViewModel().boundFavorites()
     }
 }

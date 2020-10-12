@@ -14,4 +14,8 @@
     <string name="pass_not_matching">Passwords do not match.</string>
     <string name="wrong_password">Wrong password.</string>
     <string name="unable_to_auth">Unable to authenticate.</string>
+
+    <string name="movies">Movies</string>
+    <string name="favorites">Favorites</string>
+    <string name="profile">Profile</string>
 </resources>

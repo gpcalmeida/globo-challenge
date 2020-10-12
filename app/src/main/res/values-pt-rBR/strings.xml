@@ -14,4 +14,8 @@
     <string name="pass_not_matching">Senhas não coincidem.</string>
     <string name="wrong_password">Senha incorreta.</string>
     <string name="unable_to_auth">Não foi possível autenticar.</string>
+
+    <string name="movies">Filmes</string>
+    <string name="favorites">Favoritos</string>
+    <string name="profile">Perfil</string>
 </resources>

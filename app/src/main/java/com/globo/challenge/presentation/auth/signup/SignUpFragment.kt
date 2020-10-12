@@ -29,6 +29,8 @@ class SignUpFragment : BaseFragment() {
     ): View? {
         binding = FragmentSignupBinding.inflate(inflater, container, false)
 
+        screenComponent.inject(this)
+
         binding.let {
             it.viewModel = getViewModel()
             it.lifecycleOwner = activity

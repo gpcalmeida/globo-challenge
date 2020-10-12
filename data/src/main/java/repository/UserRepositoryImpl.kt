@@ -20,6 +20,10 @@ class UserRepositoryImpl @Inject constructor(
         return MoviesRoomDatabase.getDatabase(context).userDao().getUser(user)
     }
 
+    override fun getSavedUser(): String? {
+        return sessionManager.getUser()
+    }
+
     override fun saveUser(user: User) {
         sessionManager.setUser(user.user)
         sessionManager.setPassword(user.password)

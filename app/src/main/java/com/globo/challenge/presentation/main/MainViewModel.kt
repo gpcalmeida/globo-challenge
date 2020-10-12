@@ -44,22 +44,24 @@ class MainViewModel @Inject constructor(
     private fun handleMoviesResult(result : Result.MoviesResult) {
         when(result) {
             is Result.MoviesResult.Success -> {
-               GlobalScope.launch {
-                   result.movies.forEach {
-                       insertFavoriteUseCase.execute(it)
-
-                   }
-                   getFavorites()
-               }
+                GlobalScope.launch {
+                    getDbFavorites(result.movies)
+                }
             }
-            is Result.MoviesResult.Failure -> {}
-            is Result.MoviesResult.Loading -> {}
+            is Result.MoviesResult.Failure -> hideDialog()
+            is Result.MoviesResult.Loading -> showDialog()
         }
     }
 
-    suspend fun getDbFavorites() {
-        val abc = getFavoritesUseCase.execute()
-        val def = abc
+    private suspend fun getDbFavorites(apiMovies : List<Movie>) {
+        val favorites = getFavoritesUseCase.execute()
+
+        favorites.forEach { favorite ->
+            apiMovies.find { favorite.title == it.title }?.isFavorite = true
+        }
+
+        movies.postValue(apiMovies)
+        hideDialog()
     }
 
 }

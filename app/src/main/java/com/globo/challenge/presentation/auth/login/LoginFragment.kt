@@ -28,6 +28,8 @@ class LoginFragment : BaseFragment() {
     ): View? {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
 
+        screenComponent.inject(this)
+
         binding.let {
             it.viewModel = getViewModel()
             it.lifecycleOwner = activity

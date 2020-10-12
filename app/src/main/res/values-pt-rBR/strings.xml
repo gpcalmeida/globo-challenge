@@ -18,4 +18,6 @@
     <string name="movies">Filmes</string>
     <string name="favorites">Favoritos</string>
     <string name="profile">Perfil</string>
+    <string name="no_favorites">You have no favorites yet. Add them by touching the star on the movies list.</string>
+    <string name="no_movies">No movies found.</string>
 </resources>

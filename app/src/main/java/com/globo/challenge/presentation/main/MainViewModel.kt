@@ -28,10 +28,10 @@ class MainViewModel @Inject constructor(
     application: BaseApplication
 ) : BaseViewModel(application) {
 
-    private val movies = MutableLiveData<List<Movie>>().apply { value = null }
+    private val movies = MutableLiveData<List<Movie>>().apply { value = emptyList() }
     fun getMovies() : LiveData<List<Movie>> = movies
 
-    private val favorites = MutableLiveData<List<Movie>>().apply { value = null }
+    private val favorites = MutableLiveData<List<Movie>>().apply { value = emptyList() }
     fun getFavorites() : LiveData<List<Movie>> = favorites
 
     fun onLogoutClicked() {
@@ -87,7 +87,11 @@ class MainViewModel @Inject constructor(
         val favorites = getFavoritesUseCase.execute()
 
         favorites.forEach { favorite ->
-            apiMovies.find { favorite.title == it.title }?.isFavorite = true
+            apiMovies.find { favorite.title == it.title }?.let{
+                it.isFavorite = true
+                it.user = favorite.user
+                it.id = favorite.id
+            }
         }
 
         movies.postValue(apiMovies)

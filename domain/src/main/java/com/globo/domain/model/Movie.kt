@@ -5,7 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "favorite_table")
 data class Movie (
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
+    var id : Int = 0,
+
     val title : String,
     val subtitle : String,
     val duration : String,

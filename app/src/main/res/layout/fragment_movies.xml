@@ -6,11 +6,28 @@
             name="viewModel"
             type="com.globo.challenge.presentation.main.MainViewModel" />
 
+        <import type="android.view.View"/>
+
     </data>
-    <androidx.recyclerview.widget.RecyclerView
-        android:background="@color/mainBackground"
-        android:id="@+id/moviesRecyclerView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/mainBackground"
+            android:id="@+id/moviesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/no_movies"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:visibility="@{viewModel.movies.size() > 0 ? View.GONE : View.VISIBLE}"
+            android:fontFamily="@font/open_sans_extra_bold"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.globo.challenge.databinding.FragmentFavoritesBinding
 import com.globo.challenge.databinding.FragmentMoviesBinding
 import com.globo.challenge.presentation.BaseFragment
 import com.globo.challenge.presentation.adapter.FavoritesAdapter
@@ -20,7 +21,7 @@ class FavoritesFragment : BaseFragment() {
 
     override fun getViewModel() = (activity as MainActivity).getViewModel()
 
-    private lateinit var binding : FragmentMoviesBinding
+    private lateinit var binding : FragmentFavoritesBinding
 
     private val favoritesAdapter = FavoritesAdapter(emptyList())
 
@@ -29,7 +30,7 @@ class FavoritesFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMoviesBinding.inflate(inflater, container, false)
+        binding = FragmentFavoritesBinding.inflate(inflater, container, false)
 
         screenComponent.inject(this)
 

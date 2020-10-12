@@ -12,4 +12,6 @@ interface UserRepository {
 
     fun getSavedUser() : String?
 
+    fun logout()
+
 }

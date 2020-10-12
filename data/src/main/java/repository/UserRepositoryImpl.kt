@@ -28,4 +28,8 @@ class UserRepositoryImpl @Inject constructor(
         sessionManager.setUser(user.user)
         sessionManager.setPassword(user.password)
     }
+
+    override fun logout() {
+        sessionManager.logout()
+    }
 }

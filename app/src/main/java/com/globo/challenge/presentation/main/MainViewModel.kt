@@ -11,6 +11,7 @@ import com.globo.domain.usecase.favorites.DeleteFavoriteUseCase
 import com.globo.domain.usecase.favorites.GetFavoritesUseCase
 import com.globo.domain.usecase.movies.GetMoviesUseCase
 import com.globo.domain.usecase.favorites.InsertFavoriteUseCase
+import com.globo.domain.usecase.session.ClearSessionUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.GlobalScope
@@ -18,10 +19,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
+    private val router : MainRouter,
     private val getMoviesUseCase: GetMoviesUseCase,
     private val getFavoritesUseCase: GetFavoritesUseCase,
     private val insertFavoriteUseCase: InsertFavoriteUseCase,
     private val deleteFavoriteUseCase: DeleteFavoriteUseCase,
+    private val clearSessionUseCase: ClearSessionUseCase,
     application: BaseApplication
 ) : BaseViewModel(application) {
 
@@ -30,6 +33,11 @@ class MainViewModel @Inject constructor(
 
     private val favorites = MutableLiveData<List<Movie>>().apply { value = null }
     fun getFavorites() : LiveData<List<Movie>> = favorites
+
+    fun onLogoutClicked() {
+        clearSessionUseCase.execute()
+        router.navigate(MainRouter.Route.LOGIN)
+    }
 
     fun boundMovies() {
         getAllMovies()

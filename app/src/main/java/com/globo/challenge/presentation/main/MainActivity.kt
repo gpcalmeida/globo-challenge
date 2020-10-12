@@ -10,6 +10,7 @@ import com.globo.challenge.presentation.BaseActivity
 import com.globo.challenge.presentation.adapter.MoviesAdapter
 import com.globo.challenge.presentation.main.favorites.FavoritesFragment
 import com.globo.challenge.presentation.main.movies.MoviesFragment
+import com.globo.challenge.presentation.main.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import javax.inject.Inject
 
@@ -19,8 +20,6 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
     lateinit var mainViewModel: MainViewModel
 
     override fun getViewModel() = mainViewModel
-
-    private val moviesAdapter = MoviesAdapter(emptyList())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +45,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
              openFragment(FavoritesFragment.newInstance())
             }
             R.id.profileAction ->{
-                openFragment(Fragment())
+                openFragment(ProfileFragment.newInstance())
             }
         }
         return true
@@ -54,6 +53,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
     private fun openFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
+        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
         transaction.replace(R.id.mainFrameLayout, fragment)
         transaction.commit()
     }

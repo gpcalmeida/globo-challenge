@@ -6,7 +6,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.globo.challenge.R
 import com.globo.challenge.databinding.FragmentDialogChangePasswordBinding
-import com.globo.challenge.databinding.FragmentDialogMovieDetailsBinding
 
 class ChangePasswordDialogFragment(
     private val changeCallback : (newPassword : String) -> Unit

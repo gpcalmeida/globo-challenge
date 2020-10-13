@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.globo.challenge.presentation.auth.AuthViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mainBackground">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up"
+            android:textColor="@color/white"
+            android:fontFamily="@font/open_sans_extra_bold"
+            app:layout_constraintBottom_toTopOf="@id/signUpLinearLayout"
+            android:gravity="center"
+            android:textSize="40sp"
+            android:layout_marginBottom="20dp"
+            android:paddingHorizontal="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/signUpLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginHorizontal="90dp">
+
+            <EditText
+                android:id="@+id/userEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:autofillHints="false"
+                android:fontFamily="@font/open_sans_regular"
+                android:hint="@string/user"
+                android:text="@={viewModel.user}"
+                android:inputType="text"
+                android:textSize="36sp"
+                android:background="@drawable/background_edit_text"
+                android:textColorHint="@color/white"
+                android:padding="12dp"
+                android:layout_marginBottom="25dp"/>
+
+            <EditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:autofillHints="false"
+                android:fontFamily="@font/open_sans_regular"
+                android:hint="@string/password"
+                android:text="@={viewModel.password}"
+                android:inputType="textPassword"
+                android:textSize="36sp"
+                android:background="@drawable/background_edit_text"
+                android:textColorHint="@color/white"
+                android:padding="12dp"
+                android:layout_marginBottom="25dp"/>
+
+            <EditText
+                android:id="@+id/confirmPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:autofillHints="false"
+                android:fontFamily="@font/open_sans_regular"
+                android:hint="@string/confirm_password"
+                android:text="@={viewModel.confirmPassword}"
+                android:inputType="textPassword"
+                android:textSize="36sp"
+                android:background="@drawable/background_edit_text"
+                android:textColorHint="@color/white"
+                android:padding="12dp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="240dp"
+            android:layout_height="90dp"
+            android:text="@string/confirm"
+            app:layout_constraintTop_toBottomOf="@id/signUpLinearLayout"
+            app:layout_constraintStart_toStartOf="@id/signUpLinearLayout"
+            app:layout_constraintEnd_toEndOf="@id/signUpLinearLayout"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/background_button"
+            android:textColor="@color/white"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="32sp"
+            android:onClick="@{() -> viewModel.onConfirmClick()}"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/signUpButton"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:onClick="@{()-> viewModel.onLoginClicked()}">
+
+            <TextView
+                android:id="@+id/alreadyRegisteredTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/already_registered"
+                android:textColor="@color/white"
+                android:fontFamily="@font/open_sans_light"
+                app:layout_constraintTop_toTopOf="parent"
+                android:gravity="center"
+                android:textSize="28sp"
+                android:paddingHorizontal="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:fontFamily="@font/open_sans_extra_bold"
+                app:layout_constraintTop_toBottomOf="@id/alreadyRegisteredTextView"
+                android:gravity="center"
+                android:textSize="36sp"
+                android:layout_marginTop="2dp"
+                android:paddingHorizontal="10dp"
+                android:onClick="@{() -> viewModel.onLoginClicked()}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

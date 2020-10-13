@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import com.globo.challenge.R
 import com.globo.challenge.databinding.ActivityMainBinding
 import com.globo.challenge.presentation.BaseActivity
-import com.globo.challenge.presentation.adapter.MoviesAdapter
 import com.globo.challenge.presentation.main.favorites.FavoritesFragment
 import com.globo.challenge.presentation.main.movies.MoviesFragment
 import com.globo.challenge.presentation.main.profile.ProfileFragment

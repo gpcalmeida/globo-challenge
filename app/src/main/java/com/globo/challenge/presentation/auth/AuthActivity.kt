@@ -8,7 +8,6 @@ import com.globo.challenge.presentation.BaseActivity
 import com.globo.challenge.presentation.adapter.AuthPagerAdapter
 import javax.inject.Inject
 
-
 class AuthActivity : BaseActivity() {
 
     @Inject

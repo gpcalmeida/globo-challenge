@@ -18,6 +18,11 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="Widget.LargeBottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/open_sans_regular</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="CustomWhiteAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowBackground">@drawable/background_fragment_dialog</item>
     </style>

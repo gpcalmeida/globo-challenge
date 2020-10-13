@@ -5,10 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globo.challenge.databinding.FragmentFavoritesBinding
-import com.globo.challenge.databinding.FragmentMoviesBinding
 import com.globo.challenge.presentation.BaseFragment
 import com.globo.challenge.presentation.adapter.FavoritesAdapter
 import com.globo.challenge.presentation.main.MainActivity

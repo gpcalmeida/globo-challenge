@@ -16,6 +16,6 @@ interface UserDao {
     fun insertUser(user : User) : Long
 
     @Query("UPDATE user_table SET password = :password WHERE user = :user")
-    suspend fun updatePassword(user: String, password: String)
+    fun updatePassword(user: String, password: String)
 
 }

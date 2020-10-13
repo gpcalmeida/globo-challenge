@@ -42,7 +42,6 @@ class MoviesFragment : BaseFragment() {
             binding.moviesRecyclerView.adapter = moviesAdapter.apply {
                 onFavoriteClickedListener = {
                     GlobalScope.launch {
-                        val a = it.isFavorite
                         if(it.isFavorite)
                             getViewModel().setAsFavorite(it)
                         else

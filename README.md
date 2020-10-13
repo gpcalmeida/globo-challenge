@@ -8,11 +8,11 @@
 
 3. Utilize json para o consumo das informações dos filmes que devem conter título, subtitulo, duração, sinopse e thumb do filme.
 
-4. Será necessário que você utilize frameworks para a requisição do mock(json).
+4. Será necessário que você utilize frameworks para a requisição do mock(json). Foi utilizado o Apiary para mock do JSON, o request do mesmo é feito com o Retrofit.
 
 #### Necessário:
 * Usar Android Studio;
-* ORM de sua preferência e shared preferences;
+* ORM de sua preferência e shared preferences; Foi utilizado Room para persistencia de dados.
 * Login e Senha;
 * Usar fragments;
 * Telas dinâmicas;

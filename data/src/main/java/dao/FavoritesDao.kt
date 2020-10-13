@@ -10,9 +10,9 @@ interface FavoritesDao {
     fun getFavorites(user : String): List<Movie>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(movie: Movie)
+    fun insert(movie: Movie)
 
     @Delete
-    suspend fun delete(movie : Movie)
+    fun delete(movie : Movie)
 
 }

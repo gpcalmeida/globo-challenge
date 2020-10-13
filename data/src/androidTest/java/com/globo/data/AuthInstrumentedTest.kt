@@ -1,8 +1,7 @@
-package com.globo.challenge
+package com.globo.data
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.globo.domain.model.User
 import db.MoviesRoomDatabase

@@ -21,7 +21,7 @@
     <string name="profile">Perfil</string>
     <string name="no_favorites">You have no favorites yet. Add them by touching the star on the movies list.</string>
     <string name="no_movies">No movies found.</string>
-    <string name="hello_user">Olá, Gustavo!</string>
+    <string name="hello_user">Olá,</string>
     <string name="change_password">Mudar Senha</string>
     <string name="logout">Sair</string>
 </resources>
